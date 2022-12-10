@@ -1,0 +1,39 @@
+public class Solution {
+    public int maxArr(int[] A) {
+
+        int min=Integer.MAX_VALUE;
+        int max=Integer.MIN_VALUE;
+
+        for(int i=0;i<A.length;i++){
+            int temp = A[i]+(i+1);
+
+            if(temp<min){
+                min=temp;
+            }
+
+            if(temp>max){
+                max=temp;
+            }
+        }
+        
+
+        int xMax=max-min;
+        min=Integer.MAX_VALUE;
+        max=Integer.MIN_VALUE;
+        for(int i=0;i<A.length;i++){
+            int temp = A[i]-(i+1);
+
+            if(temp<min){
+                min=temp;
+            }
+
+            if(temp>max){
+                max=temp;
+            }
+        }
+
+        int yMax=max-min;
+
+        return Math.max(xMax,yMax);
+    }
+}
