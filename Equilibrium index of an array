@@ -1,0 +1,22 @@
+public class Solution {
+    public int solve(int[] A) {
+        int N=A.length;
+        int prefixArray[] = new int[N];
+
+        prefixArray[0]=A[0];
+
+        for(int i=1;i<N;i++){
+            prefixArray[i]=prefixArray[i-1]+A[i];
+        }
+        if(prefixArray[N-1]==0){
+            return 0;
+        }
+
+        for(int i=1;i<N-1;i++){
+            if(prefixArray[i-1]==(prefixArray[N-1]-prefixArray[i])){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
